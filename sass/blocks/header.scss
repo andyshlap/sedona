@@ -1,10 +1,12 @@
 .main-nav{
   position: relative;
+  z-index: 1;
 }
 
 .main-nav__list{
   margin: 0;
   padding: 0;
+
 }
 
 .main-nav__item{
@@ -12,10 +14,6 @@
     background-color: $primary-color-teal;
     border-bottom: 1px solid #678fa8;
     border-top: 1px solid #9ac2db;
-}
-
-.main-nav__item-last{
-  border-bottom:none;
 }
 
 .main-nav__link{
@@ -88,61 +86,84 @@
 }
 
 .header__intro{
-  height: calc(100vh - 56px);
-  background: url(../../img/intro-triangle.svg),
-              url(../../img/text-index.svg),
-              url(../../img/back-mobile.jpg),;
-  background-position:  bottom, center, center;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-size: contain, 80% 65%, cover;
+  padding: 0 20px;
+  height: 389px;
+  background-image: url(../../img/intro-triangle.svg),
+                    url(../../img/back-mobile.jpg);
 
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom, center;
+
+  .intro__text{
+    height: 100%;
+    width: 100%;
+    background-image: url(../../img/text-index.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
+
 
 @media (min-width: $tablet-width){
   .main-nav{
     margin-bottom: -52px;
-    z-index: 2;
-  }
-  .main-nav__list{
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .main-nav__item-wrapper{
-    display: flex;
-    width: 40%;
   }
 
   .main-nav__item{
-    width: 50%;
-    list-style: none;
+    display: inline;
+    width: 20%;
+    background:transparent;
     border: none;
-    background: transparent;
-  }
 
+    &:nth-child(1),
+    &:nth-child(2){
+      float: left;
+    }
+
+    &:nth-child(3),
+    &:nth-child(4){
+      float: right;
+    }
+  }
   .main-nav__link{
     color: #000000;
     font-size: 14px;
+    display: inline;
+
+    &:hover{
+      color: $primary-color-teal;
+    }
+
+    &--active{
+      color: #766357;
+      &--hover{
+        color: #604e43;
+      }
+
+      &--down{
+        opacity: 30%;
+      }
+    }
+
+    &--down{
+      opacity: 30%;
+    }
   }
 
-  .main-nav__button-close{
-    display: none;
-  }
-
+  .main-nav__button-close,
   .main-nav__button-open{
     display: none;
   }
 
   .header__intro{
+    padding: 0 135px 0 135px;
+    height: 516px;
+    background-image: url(../../img/intro-triangle-tablet.svg),
+                      url(../../img/back-tablet.jpg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom, center;
+}
 
-  background: url(../../img/intro-triangle-tablet.svg),
-              url(../../img/text-index.svg),
-              url(../../img/back-tablet.jpg),;
-  background-position:  bottom, center, center;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-size: contain, 65% 65%, cover;
-
-  }
 }
 
 @media (min-width: $desktop-width){
@@ -153,13 +174,11 @@
   }
 
   .header__intro{
-  height: calc(100vh - 56px);
-  background: url(../../img/intro-triangle-tablet.svg),
-              url(../../img/text-index.svg),
-              url(../../img/back-desktop.jpg),;
-  background-position:  bottom, center, center;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-size: contain, 65% 65%, cover;
+    padding: 0 360px ;
 
-}
+    background-image: url(../../img/intro-triangle-tablet.svg),
+                      url(../../img/back-desktop.jpg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom, center;
+  }
 }
